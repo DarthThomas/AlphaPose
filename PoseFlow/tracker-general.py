@@ -206,11 +206,7 @@ if __name__ == '__main__':
     # track = np.load('track-bl.npy').item()
     
     # calculate number of people
-    num_persons = 0
-    for fid, frame_name in enumerate(frame_list):
-        for pid in range(1, track[frame_name]['num_boxes']+1):
-            num_persons = max(num_persons, track[frame_name][pid]['new_pid'])
-    print("This video contains %d people."%(num_persons))
+    print("This video contains %d people."%(max_pid_id))
 
     # export tracking result into notrack json files
     print("Export tracking results to json...\n")
